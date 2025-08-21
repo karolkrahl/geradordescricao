@@ -35,6 +35,38 @@ a:hover { text-decoration:underline; }
   border:1px solid var(--sf-accent)!important; border-radius:8px!important;
 }
 .block-container{ padding-top:2rem!important; }
+
+/* ==== Chips do MultiSelect (tags) na cor da marca) ==== */
+.stMultiSelect [data-baseweb="tag"]{
+  background: rgba(15, 174, 121, 0.12) !important; /* fundo verdinho */
+  border: 1px solid #0fae79 !important;
+  color: #0fae79 !important;
+  border-radius: 999px !important; /* pílula mais bonitinha */
+  padding: 2px 8px !important;
+}
+
+/* texto dentro do chip */
+.stMultiSelect [data-baseweb="tag"] span{
+  color: #0fae79 !important;
+}
+
+/* ícone do “x” para remover */
+.stMultiSelect [data-baseweb="tag"] svg{
+  fill: #0fae79 !important;
+}
+
+/* hover do chip */
+.stMultiSelect [data-baseweb="tag"]:hover{
+  background: rgba(15, 174, 121, 0.18) !important;
+  border-color: #0fae79 !important;
+}
+
+/* borda do campo do multiselect */
+.stMultiSelect [data-baseweb="select"] > div{
+  border-color: #0fae79 !important;
+  border-radius: 8px !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -361,3 +393,4 @@ Search Terms: {am.get('search_terms','')}
 else:
     st.info("Preencha o formulário acima e clique em **Gerar descrição**.")
     st.caption("Dica: liste 3–6 características claras; a IA organiza e otimiza para SEO/marketplaces.")
+
