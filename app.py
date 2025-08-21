@@ -249,28 +249,28 @@ if submitted:
     faq = result.get("faq", []) or []
     mkt = result.get("marketplaces", {}) or {}
 
-    st.markdown("### 🔎 Título SEO")
+    st.markdown("### Título SEO")
     st.text_area("Título SEO (copiável)", value=titulo, height=60)
 
-    st.markdown("### ✂️ Descrição curta")
+    st.markdown("###  Descrição curta")
     st.text_area("Descrição curta (copiável)", value=desc_curta, height=100)
 
-    st.markdown("### 📄 Descrição longa (Markdown)")
+    st.markdown("### Descrição longa (Markdown)")
     st.text_area("Descrição longa (copiável)", value=desc_longa_md, height=280)
 
-    st.markdown("### ✅ Bullet points")
+    st.markdown("### Bullet points")
     if bullets:
         st.markdown("\n".join([f"- {b}" for b in bullets]))
     else:
         st.caption("Sem bullets retornados.")
 
-    st.markdown("### 🧩 Palavras-chave sugeridas")
+    st.markdown("### Palavras-chave sugeridas")
     if keywords:
         st.write(" • ".join(keywords))
     else:
         st.caption("Sem keywords retornadas.")
 
-    st.markdown("### ❓ FAQ sugerida")
+    st.markdown("### FAQ sugerida")
     if faq:
         for qa in faq:
             st.write(f"**Q:** {qa.get('pergunta','')}")
@@ -280,7 +280,7 @@ if submitted:
         st.caption("Sem FAQ retornada.")
 
     # ==================== MARKETPLACES ====================
-    st.markdown("## 🛒 Versões para Marketplaces")
+    st.markdown("## Versões para Marketplaces")
     ml = mkt.get("mercado_livre", {}) if isinstance(mkt, dict) else {}
     sh = mkt.get("shopee", {}) if isinstance(mkt, dict) else {}
     am = mkt.get("amazon", {}) if isinstance(mkt, dict) else {}
@@ -312,7 +312,7 @@ if submitted:
         st.text_area("Search Terms / Palavras de busca", value=am_terms, height=80)
 
     # ==================== DOWNLOADS ====================
-    st.markdown("## ⬇️ Exportar")
+    st.markdown("## ⬇️ Baixar")
     md_export = f"""# {titulo or nome}
 
 ## Descrição curta
@@ -393,4 +393,5 @@ Search Terms: {am.get('search_terms','')}
 else:
     st.info("Preencha o formulário acima e clique em **Gerar descrição**.")
     st.caption("Dica: liste 3–6 características claras; a IA organiza e otimiza para SEO/marketplaces.")
+
 
