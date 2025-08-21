@@ -1,6 +1,5 @@
 # app.py — Gerador de Descrições para Produtos (pt-BR)
-# Autor: SuperFrete (MVP)
-# Requisitos: streamlit, openai, requests (opcional)
+# Requisitos: streamlit, openai
 
 import os
 import json
@@ -36,10 +35,6 @@ a:hover { text-decoration:underline; }
   border:1px solid var(--sf-accent)!important; border-radius:8px!important;
 }
 .block-container{ padding-top:2rem!important; }
-.code-like {
-  padding:12px; background:#f6f8fa; border-radius:8px; border:1px solid #eaecef; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  white-space: pre-wrap;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -295,13 +290,13 @@ if submitted:
 {desc_longa_md}
 
 ## Bullet points
-{"".join([f"- {b}\n" for b in bullets]) or "- —"}
+{"".join([f"- {b}\\n" for b in bullets]) or "- —"}
 
 ## Palavras-chave
 {"; ".join(keywords) or "—"}
 
 ## FAQ
-{"".join([f"**Q:** {qa.get('pergunta','')}\n\n**A:** {qa.get('resposta','')}\n\n" for qa in faq]) or "—"}
+{"".join([f"**Q:** {qa.get('pergunta','')}\\n\\n**A:** {qa.get('resposta','')}\\n\\n" for qa in faq]) or "—"}
 
 ## Marketplaces
 ### Mercado Livre
@@ -314,14 +309,14 @@ if submitted:
 **Descrição**:
 {sh.get('descricao','')}
 **Bullets**:
-{"".join([f"- {b}\n" for b in sh.get('bullet_points',[])])}
+{"".join([f"- {b}\\n" for b in sh.get('bullet_points',[])])}
 
 ### Amazon
 **Título**: {am.get('titulo','')}
 **Descrição**:
 {am.get('descricao','')}
 **Bullets**:
-{"".join([f"- {b}\n" for b in am.get('bullet_points',[])])}
+{"".join([f"- {b}\\n" for b in am.get('bullet_points',[])])}
 **Search Terms**: {am.get('search_terms','')}
 """.strip()
 
